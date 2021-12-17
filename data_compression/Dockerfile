@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-# Install package
+# Install packages
 RUN apt-get update && apt-get install -y \
     gcc \
     language-pack-ja \
