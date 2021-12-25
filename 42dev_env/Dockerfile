@@ -1,12 +1,11 @@
 # Base image
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 # Unminimize
 RUN yes | unminimize
 
 # Install packages
-RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
-    apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     clang \
     clangd-12 \
     clang-format \
@@ -16,15 +15,14 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes && \
     language-pack-ja-base \
     man \
     python3-pip \
-    software-properties-common \
     tar \
     tmux \
     tree \
     unzip \
     vim \
-    zip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    zip
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y software-properties-common
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && \
@@ -34,13 +32,16 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && \
 RUN pip install --upgrade pip setuptools && \
     pip install norminette
 
+# Clean cached
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 # Set environment variables
 ENV LANG=ja_JP.utf8 \
     TZ=Asia/Tokyo
 
 # Set user
-ARG DOCKER_USER=[your_username_inside_docker] \
-    DOCKER_PASSWORD=[your_password_inside_docker]
+ARG DOCKER_USER=<user_name> \
+    DOCKER_PASSWORD=<password>
 RUN useradd -m ${DOCKER_USER} && \
     echo "${DOCKER_USER}:${DOCKER_PASSWORD}" | chpasswd && \
     echo "${DOCKER_USER} ALL=(ALL) ALL" >> /etc/sudoers
