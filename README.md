@@ -4,7 +4,7 @@
 
 ## 一覧
 
-[42dev_env](https://github.com/tksx1227/docker-dev/tree/main/42dev_env)：42Tokyo用の実行環境
+[42dev_env](https://github.com/tksx1227/docker-dev/tree/main/42dev_env)：42Tokyo用の開発・実行環境
 
 [data_compression](https://github.com/tksx1227/docker-dev/tree/main/data_compression)：講義科目「データ圧縮」用のC言語実行環境
 
