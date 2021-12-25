@@ -50,4 +50,4 @@ USER ${DOCKER_USER}
 # Change working directory
 WORKDIR /home/${DOCKER_USER}
 
-CMD ["bash"]
+ENTRYPOINT ["bash"]
