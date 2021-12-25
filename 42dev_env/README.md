@@ -25,10 +25,9 @@
 
 ## 使い方
 
-2つのファイルを42用のディレクトリに移動し、そこで以下のコマンドを実行する。
-docker-compose はいらない気もする。
+42用のディレクトリをマウントして使用する。
 
 ```bash
-$ docker-compose up --build
-$ docker exec -it 42tokyo_env_app_1 bash
+$ docker build -t 42tokyo <this dir path>
+$ docker run -it --name 42tokyo -v <host:path>:/home/<user_name>/42tokyo 42tokyo
 ```

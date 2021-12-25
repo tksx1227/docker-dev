@@ -1,9 +1,0 @@
-version: "3"
-
-services:
-  app:
-    build: .
-    volumes:
-      - ".:/home/<user_name>/42tokyo"
-    tty: true
-    stdin_open: true
