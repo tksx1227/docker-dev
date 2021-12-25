@@ -4,6 +4,8 @@
 
 ## 一覧
 
+[42dev_env](https://github.com/tksx1227/docker-dev/tree/main/42dev_env)：42Tokyo用の実行環境
+
 [data_compression](https://github.com/tksx1227/docker-dev/tree/main/data_compression)：講義科目「データ圧縮」用のC言語実行環境
 
 [game_search_tree](https://github.com/tksx1227/docker-dev/tree/main/game_search_tree)：講義科目「ゲーム木探索」用のPython実行環境
