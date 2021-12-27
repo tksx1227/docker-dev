@@ -52,6 +52,8 @@ d = Display()
 d.start()
 
 # 画像のレンダリングを行う
+img = plt.imshow(env.render('rgb_array')) 
+
 display.clear_output(wait=True)
 img.set_data(env.render('rgb_array'))
 plt.axis('off')
