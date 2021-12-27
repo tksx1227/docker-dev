@@ -38,3 +38,22 @@ $ docker run -it --name game_search_tree -p 8888:8888 -v <host:path>:<container:
 
 $ jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=""
 ```
+
+画像のレンダリングは、以下のコードを参考にして行う。
+
+```python
+# ディスプレイを用意する
+import gym
+from IPython import display
+from pyvirtualdisplay import Display
+import matplotlib.pyplot as plt
+
+d = Display()
+d.start()
+
+# 画像のレンダリングを行う
+display.clear_output(wait=True)
+img.set_data(env.render('rgb_array'))
+plt.axis('off')
+display.display(plt.gcf())
+```
