@@ -37,7 +37,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set environment variables
 ENV LANG=ja_JP.utf8 \
-    TZ=Asia/Tokyo
+    TZ=Asia/Tokyo \
+    USER=<42_user_name> \
+    MAIL=<42_email>
 
 # Set user
 ARG DOCKER_USER=<user_name> \
@@ -49,5 +51,11 @@ USER ${DOCKER_USER}
 
 # Change working directory
 WORKDIR /home/${DOCKER_USER}
+
+# Install vim plugin "Stdheader"
+RUN git clone https://github.com/pbondoer/vim-42header.git ~/ && \
+    mkdir -p ~/.vim/after/plugin && \
+    mv ~/vim-42header/after/plugin/42header.vim ~/.vim/after/plugin/ && \
+    rm -rf ~/vim-42header
 
 ENTRYPOINT ["bash"]
