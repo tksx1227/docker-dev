@@ -15,11 +15,13 @@ RUN apt-get update && apt-get install -y \
     language-pack-ja-base \
     man \
     python3-pip \
+    sudo \
     tar \
     tmux \
     tree \
     unzip \
     vim \
+    wget \
     zip
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y software-properties-common
