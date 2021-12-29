@@ -4,6 +4,7 @@
 
 ## 追加パッケージ
 
+- build_essential
 - clang
 - clangd-12
 - clang-format
@@ -16,11 +17,13 @@
 - norminette
 - python3-pip
 - software-properties-common
+- sudo
 - tar
 - tmux
 - tree
 - unzip
 - vim
+- wget
 - zip
 
 ## 使い方
