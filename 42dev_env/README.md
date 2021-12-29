@@ -4,6 +4,7 @@
 
 ## 追加パッケージ
 
+- build_essential
 - clang
 - clangd-12
 - clang-format
