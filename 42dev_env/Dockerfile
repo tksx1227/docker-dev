@@ -6,6 +6,7 @@ RUN yes | unminimize
 
 # Install packages
 RUN apt-get update && apt-get install -y \
+    build-essential \
     clang \
     clangd-12 \
     clang-format \
