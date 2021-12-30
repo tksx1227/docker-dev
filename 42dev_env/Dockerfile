@@ -1,5 +1,5 @@
 # Base image
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # Unminimize
 RUN yes | unminimize
