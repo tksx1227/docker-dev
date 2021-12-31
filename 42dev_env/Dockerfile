@@ -31,6 +31,10 @@ RUN apt-get install -y software-properties-common
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && \
     apt-get install -y nodejs
 
+# Install Vim plugin manager
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Install norminette
 RUN pip install --upgrade pip setuptools && \
     pip install norminette
@@ -54,11 +58,5 @@ USER ${DOCKER_USER}
 
 # Change working directory
 WORKDIR /home/${DOCKER_USER}
-
-# Install vim plugin "Stdheader"
-RUN git clone https://github.com/pbondoer/vim-42header.git ~/ && \
-    mkdir -p ~/.vim/after/plugin && \
-    mv ~/vim-42header/after/plugin/42header.vim ~/.vim/after/plugin/ && \
-    rm -rf ~/vim-42header
 
 ENTRYPOINT ["bash"]
