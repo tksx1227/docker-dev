@@ -29,6 +29,8 @@
 
 - junegunn/fzf
 - ntpeters/vim-better-whitespace
+- itchyny/lightline.vim
+- tpope/vim-commentary
 - jiangmiao/auto-pairs
 - dense-analysis/ale
 - preservim/nerdtree
