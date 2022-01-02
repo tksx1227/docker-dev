@@ -25,6 +25,15 @@
 - wget
 - zip
 
+## 追加Vimプラグイン
+
+- junegunn/fzf
+- ntpeters/vim-better-whitespace
+- jiangmiao/auto-pairs
+- dense-analysis/ale
+- preservim/nerdtree
+- pbondoer/vim-42header
+
 ## 使い方
 
 42用のディレクトリをマウントして使用する。
