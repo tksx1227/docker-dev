@@ -7,11 +7,10 @@ RUN yes | unminimize
 # Install packages
 RUN apt-get update && apt-get install -y \
     build-essential \
-    clang \
-    clangd-12 \
     clang-format \
     ctags \
     curl \
+    fzf \
     git \
     language-pack-ja-base \
     man \
@@ -30,10 +29,6 @@ RUN apt-get install -y software-properties-common
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash && \
     apt-get install -y nodejs
-
-# Install Vim plugin manager
-RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install norminette
 RUN pip install --upgrade pip setuptools && \
@@ -58,5 +53,14 @@ USER ${DOCKER_USER}
 
 # Change working directory
 WORKDIR /home/${DOCKER_USER}
+
+# Install Vim plugins
+RUN curl -fLo ./.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Copy config/setup files
+COPY ./bashrc.txt ./.bashrc
+COPY ./vimrc.txt ./.vimrc
+COPY ./init.sh ./init.sh
 
 ENTRYPOINT ["bash"]
