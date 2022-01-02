@@ -29,6 +29,8 @@ set hidden
 set shell=/bin/bash
 " ビープ音を消す
 set vb t_vb=
+" jjでノーマルモードに戻る
+inoremap <silent> jj <ESC>
 
 "-----------------------------------
 " Visual
