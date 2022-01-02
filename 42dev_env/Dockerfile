@@ -54,7 +54,7 @@ USER ${DOCKER_USER}
 # Change working directory
 WORKDIR /home/${DOCKER_USER}
 
-# Install Vim plugins
+# Install Vim plugin manager
 RUN curl -fLo ./.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
