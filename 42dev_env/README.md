@@ -5,11 +5,10 @@
 ## 追加パッケージ
 
 - build_essential
-- clang
-- clangd-12
 - clang-format
 - ctags
 - curl
+- fzf
 - git
 - language-pack-ja-base
 - man
@@ -33,4 +32,9 @@
 ```bash
 $ docker build -t 42tokyo <this dir path>
 $ docker run -it --name 42tokyo -v <host:path>:/home/<user_name>/42tokyo 42tokyo
+```
+
+コンテナを起動したら `init.sh` を実行。
+```bash
+$ bash ~/init.sh
 ```
