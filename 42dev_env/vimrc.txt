@@ -1,0 +1,101 @@
+"-----------------------------------
+" Plugin <Loading>
+"-----------------------------------
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
+Plug 'pbondoer/vim-42header'
+call plug#end()
+
+"-----------------------------------
+" Base
+"-----------------------------------
+" 文字コードをUTF-8に設定
+set fenc=utf8
+" バックアップファイルを作らない
+set nobackup
+" スワップファイルを作らない
+set noswapfile
+" 編集中のファイルが変更されたら自動で読み込み直す
+set autoread
+" バッファが編集中でもほかのファイルを開けるようにする
+set hidden
+" デフォルトのシェルをbashに設定
+set shell=/bin/bash
+" ビープ音を消す
+set vb t_vb=
+
+"-----------------------------------
+" Visual
+"-----------------------------------
+" 行番号を表示
+set number
+" スマートインデントを有効化
+set smartindent
+" ステータスラインを常に表示
+set laststatus=2
+" バックスペースを有効化
+set backspace=2
+" 入力中のコマンドステータスを表示する
+set showcmd
+" シンタックスハイライトを有効化
+syntax on
+" カラースキームを設定
+colorscheme ron
+hi Comment ctermfg=DarkCyan
+
+"-----------------------------------
+" Tab
+"-----------------------------------
+" Tab文字を可視化
+set list listchars=tab:\▸\-
+" Tab文字を半角スペースにしない
+set noexpandtab
+" 行頭以外のTab文字の表示幅(スペースいくつ分)
+set tabstop=4
+" 行頭でのTab文字の表示幅
+set shiftwidth=4
+
+"-----------------------------------
+" Search
+"-----------------------------------
+" 検索文字が小文字の場合は大文字と小文字を区別しない
+set ignorecase
+" 検索文字に大文字がある場合は大文字と小文字を区別する
+set smartcase
+" 検索文字列入力時に順次対象文字列にヒットさせる
+set incsearch
+" 最後まで行くと最初に戻る
+set wrapscan
+" 検索語をハイライト表示
+set hlsearch
+" ESC2度押しでハイライト解除
+nmap <Esc><Esc> :noh<CR><Esc>
+
+"-----------------------------------
+" Plugin <Setting>
+"-----------------------------------
+" preservim/nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" dense-analysis/ale
+let g:ale_set_highlights = 0
+let g:ale_linters = {
+  \ 'c': ['norminette', 'cc'],
+  \ 'cpp': ['norminette',],
+  \ }
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \ 'c': ['clang-format'],
+  \ }
+let g:ale_fix_on_save = 0
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" ntpeters/vim-better-whitespace
+highlight ExtraWhitespace ctermbg=grey
