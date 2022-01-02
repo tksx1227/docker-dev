@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'pbondoer/vim-42header'
@@ -46,6 +47,7 @@ syntax on
 " カラースキームを設定
 colorscheme ron
 hi Comment ctermfg=DarkCyan
+hi Visual cterm=none ctermbg=darkgrey ctermfg=cyan
 
 "-----------------------------------
 " Tab
@@ -99,3 +101,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " ntpeters/vim-better-whitespace
 highlight ExtraWhitespace ctermbg=grey
+
+" tpope/vim-commentary
+autocmd FileType c setlocal commentstring=//\ %s
