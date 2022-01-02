@@ -61,6 +61,7 @@ RUN curl -fLo ./.vim/autoload/plug.vim --create-dirs \
 # Copy config/setup files
 COPY ./bashrc.txt ./.bashrc
 COPY ./vimrc.txt ./.vimrc
+COPY ./tmux.txt ./.tmux.conf
 COPY ./init.sh ./init.sh
 
 ENTRYPOINT ["bash"]
