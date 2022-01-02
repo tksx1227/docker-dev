@@ -4,6 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
@@ -101,6 +102,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " ntpeters/vim-better-whitespace
 highlight ExtraWhitespace ctermbg=grey
+
+" itchyny/lightline.vim
+let g:ale_sign_column_always = 1
+let g:lightline = {'colorscheme': '16color'}
 
 " tpope/vim-commentary
 autocmd FileType c setlocal commentstring=//\ %s

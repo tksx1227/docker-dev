@@ -40,6 +40,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Set environment variables
 ENV LANG=ja_JP.utf8 \
     TZ=Asia/Tokyo \
+    TERM=xterm-256color \
     USER=<42_user_name> \
     MAIL=<42_email>
 
