@@ -5,6 +5,7 @@
 ## 追加パッケージ
 
 - build_essential
+- clang-format
 - ctags
 - curl
 - fzf
