@@ -92,6 +92,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias gccc='gcc -Wall -Wextra -Werror'
+alias gccs='gcc -fsanitize=address'
 alias norm='norminette -R CheckForbiddenSourceHeader'
 alias normh='norminette -R CheckDefine'
 
